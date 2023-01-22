@@ -1,35 +1,37 @@
 def format_duration(seconds):
+    """
+    function
+    :param seconds: entering parameter for searching human readeble time
+    """
+    if seconds is None or seconds == 0:
+        return 'now'
+    years = seconds // 3600 // 24 // 365
+    seconds -= years * 3600 * 24 * 365
+
     days = seconds // 3600 // 24
     seconds -= days * 3600 * 24
 
     hours = seconds // 3600
-
     seconds -= hours * 3600
 
     minutes = seconds // 60
-    seconds = seconds % 60
+    seconds -= minutes * 60
+    years = (str(years) + ' ' + ('years' if years > 1 else 'year')) if years != 0 else ''
+    days = (str(days) + ' ' + ('days' if days > 1 else 'day')) if days != 0 else ''
+    hours = (str(hours) + ' ' + ('hours' if hours > 1 else 'hour')) if hours != 0 else ''
+    minutes = (str(minutes) + ' ' + ('minutes' if minutes > 1 else 'minute')) if minutes != 0 else ''
+    seconds = (str(seconds) + ' ' + ('seconds' if seconds > 1 else 'second')) if seconds != 0 else ''
+    string = list([years, days, hours, minutes, seconds])
 
-    time_list = []
-    time_list.extend((days, hours, minutes, seconds))
-    print(time_list)
-
-    if time_list[0] != 0:
-        time_list[0] = str(time_list[0]) + ' ' + 'year' if hours == 1 else str(hours) + ' ' + 'years'
-
-    if time_list[1] != 0:
-        time_list[1] = str(time_list[1]) + ' ' + 'hour' if hours == 1 else str(hours) + ' ' + 'hours'
-
-    if time_list[2] != 0:
-        time_list[2] = str(time_list[2]) + ' ' + 'minute' if minutes == 1 else str(minutes) + ' ' + 'minutes'
-
-    if time_list[3] != 0:
-        time_list[3] = str(time_list[3]) + ' ' + 'second' if seconds == 1 else str(seconds) + ' ' + 'seconds'
-
-    a = 
-
-
-    print()
-
-    pass
-
-format_duration(69)
+    valid_val_list = [x for x in string if x != '']
+    if len(valid_val_list) == 1:
+        return valid_val_list.pop()
+    elif len(valid_val_list) == 2:
+        v1 = valid_val_list.pop()
+        v2 = valid_val_list.pop()
+        return v2 + ' and ' + v1
+    elif len(valid_val_list) > 2:
+        v1 = valid_val_list.pop()
+        v2 = valid_val_list.pop()
+        new_string = ', '.join(valid_val_list) + ', ' + v2 + ' and ' + v1
+        return new_string

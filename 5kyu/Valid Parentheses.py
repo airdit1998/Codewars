@@ -6,14 +6,14 @@
 def valid_parentheses(string):
     valid=[]
     for s in string:
-        if s=="(":
+        if s == "(":
             valid.append(s)
-        elif s==")":
+        elif s == ")":
             try:
                 valid.pop()
             except:
                 return False
-    if len(valid)==0:
+    if len(valid) == 0:
         return True
     else:
         return False
