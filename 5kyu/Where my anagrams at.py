@@ -10,6 +10,3 @@ def is_anagram(word, words):
             anagrams.append(check_the_same)
     print(anagrams)
     return anagrams
-
-
-is_anagram('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])

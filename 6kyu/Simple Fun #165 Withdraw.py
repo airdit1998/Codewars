@@ -24,9 +24,3 @@ def withdraw(n):
 
     result.append(int(n / 20))
     return result
-
-
-
-
-
-print(withdraw(1020))

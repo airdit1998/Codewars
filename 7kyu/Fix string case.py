@@ -1,17 +1,6 @@
+# In this Kata, you will be given a string that may have mixed uppercase and lowercase letters
+# and your task is to convert that string to either lowercase only or uppercase only based on:
+
+
 def solve(s):
-    if s.isupper():
-        return 1
-    elif s.islower():
-        return 2
-    # elif [x.upper().count(x) for x in s] == [x.lower().count(x) for x in s]:
-    #     return s.lower()
-    # elif [x.upper().count(x) for x in s] > [x.lower().count(x) for x in s]:
-    #     return s.lower()
-    # elif [x.upper().count(x) for x in s] < [x.lower().count(x) for x in s]:
-    #     return s.upper()
-    # else:
-    #     return s.lower()
-
-
-
-solve("CODE")
+    return ''.join([s.lower() if len([x for x in s if x.islower()]) >= len(s) / 2 else s.upper()])

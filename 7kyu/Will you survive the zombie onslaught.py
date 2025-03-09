@@ -12,5 +12,3 @@ def zombie_shootout(zombies, distance, ammo):
             return f'You shot all {zombies} zombies.'
     print(zombie, distance, ammo)
     return f'You shot {zombies - zombie} zombies before being eaten: overwhelmed.'
-
-print(zombie_shootout(50, 8, 10))
